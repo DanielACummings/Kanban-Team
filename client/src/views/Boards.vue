@@ -45,7 +45,10 @@ export default {
 			this.$store.dispatch("logout");
 		},
 		deleteBoard(deleteBoard) {
-			this.$store.dispatch("deleteBoard", deleteBoard);
+			let close = confirm("Are you sure you\nwant to delete this?");
+			if (close == true) {
+				this.$store.dispatch("deleteBoard", deleteBoard);
+			}
 		}
 	}
 };
