@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style scoped>
-/* #delete-list {
-	width: 30%;
-} */
+#delete-list {
+	margin-left: 5px;
+}
 </style>

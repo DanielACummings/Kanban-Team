@@ -1,9 +1,9 @@
 <template>
 	<div class="col-12">
 		<div class="style-tasks row pb-2">
-			<button @click="deleteTask" class="delete-task btn btn-warning btn-sm">X</button>
-			<h5 class="col text-center">{{taskData.description}}</h5>
-			<div class="dropdown">
+			<button @click="deleteTask" class="btn btn-warning btn-sm">X</button>
+			<h5 id="task" class="col text-center">{{taskData.description}}</h5>
+			<div id="move-btn" class="dropdown">
 				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
 					Move
 					<span class="caret"></span>

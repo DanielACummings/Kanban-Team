@@ -30,5 +30,6 @@ export default {
 .p-tag {
 	margin-top: 2px;
 	margin-bottom: 2px;
+	margin-left: -2px;
 }
 </style>
