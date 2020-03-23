@@ -1,5 +1,5 @@
 <template>
-	<div class="comment text-left">
+	<div class="comment text-left col-12">
 		<p class="p-tag">
 			<button @click="deleteComment" class="btn btn-warning btn-sm">X</button>
 			{{commentData.content}}
