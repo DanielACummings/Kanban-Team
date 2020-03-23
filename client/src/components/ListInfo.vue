@@ -2,8 +2,12 @@
 	<div class="card mt-5 mb-5 pb-3" style="width: 18rem;">
 		<div class="card-body">
 			<div class="row">
-				<button @click="deleteList(listData)" id="delete-list" class="btn btn-sm btn-warning">X</button>
-				<h4 class="card-title list-title">{{listData.title}}</h4>
+				<div class="col-3">
+					<button @click="deleteList(listData)" id="delete-list" class="btn btn-sm btn-warning">X</button>
+				</div>
+				<div class="col-6">
+					<h4 class="card-title list-title">{{listData.title}}</h4>
+				</div>
 			</div>
 			<form @submit.prevent="createTask">
 				<input v-model="task.description" type="text" placeholder="Add task" />
