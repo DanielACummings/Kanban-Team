@@ -1,18 +1,71 @@
 <template>
 	<div class="boards">
-		<h1 class="pt-5 pb-4">Boards</h1>
-		<button @click="logout" class="btn btn-danger">Logout</button>
-		<form @submit.prevent="addBoard">
-			<input type="text" placeholder="title" v-model="newBoard.title" required />
-			<input type="text" placeholder="description" v-model="newBoard.description" />
-			<button type="submit">Create Board</button>
-		</form>
-		<div class="text-left ml-5 mt-5" v-for="board in boards" :key="board._id">
-			<button @click="deleteBoard(board._id)" class="btn btn-secondary">X</button>
-			<router-link
-				class="text-dark"
-				:to="{name: 'board', params: {boardId: board._id}}"
-			>{{board.title}}</router-link>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-right pt-5">
+					<button @click="logout" class="btn btn-danger text-right">Logout</button>
+				</div>
+				<div class="col-12">
+					<h1 class="pb-4">Boards</h1>
+				</div>
+			</div>
+			<!-- Create board modal -->
+			<div class="row text-center">
+				<div class="col-12">
+					<button
+						type="button"
+						class="btn btn-primary text-center"
+						data-toggle="modal"
+						data-target="#add-board-modal"
+						data-whatever="@getbootstrap"
+					>Add Board</button>
+
+					<div
+						class="modal fade"
+						id="add-board-modal"
+						tabindex="-1"
+						role="dialog"
+						aria-labelledby="add-board-modal-label"
+						aria-hidden="true"
+					>
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="add-board-modal-label">Add Board</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form @submit.prevent="addBoard" class="text-left">
+										<div class="form-group">
+											<label for="title" class="col-form-label">Title:</label>
+											<input type="text" v-model="newBoard.title" class="form-control" id="title" required />
+										</div>
+										<div class="form-group">
+											<label for="description" class="col-form-label">Description:</label>
+											<input type="text" v-model="newBoard.description" class="form-control" id="description" />
+										</div>
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="text-left ml-5 mt-5" v-for="board in boards" :key="board._id">
+						<button @click="deleteBoard(board._id)" class="btn btn-secondary">X</button>
+						<router-link
+							class="text-dark"
+							:to="{name: 'board', params: {boardId: board._id}}"
+						>{{board.title}}</router-link>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
