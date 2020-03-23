@@ -1,5 +1,5 @@
 <template>
-	<div class="comment text-left">
+	<div class="comment text-left col-12">
 		<p class="p-tag">
 			<button @click="deleteComment" class="btn btn-warning btn-sm">X</button>
 			{{commentData.content}}
@@ -30,5 +30,6 @@ export default {
 .p-tag {
 	margin-top: 2px;
 	margin-bottom: 2px;
+	margin-left: -2px;
 }
 </style>

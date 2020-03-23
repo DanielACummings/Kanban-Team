@@ -1,17 +1,21 @@
 <template>
-	<div>
-		<div class="card mt-5" style="width: 18rem;">
-			<div class="card-body">
-				<h5 class="card-title list-title">{{listData.title}}</h5>
-				<form @submit.prevent="createTask">
-					<input v-model="task.description" type="text" placeholder="Add task" />
-					<button type="submit" class="btn btn-sm btn-secondary">+</button>
-				</form>
+	<div class="card mt-5 mb-5 pb-3" style="width: 18rem;">
+		<div class="card-body">
+			<div class="row">
+				<div class="col-3">
+					<button @click="deleteList(listData)" id="delete-list" class="btn btn-sm btn-warning">X</button>
+				</div>
+				<div class="col-6">
+					<h4 class="card-title list-title">{{listData.title}}</h4>
+				</div>
 			</div>
-			<button @click="deleteList(listData)" class="btn btn-sm btn-warning">Delete List</button>
-			<div v-for="task in tasks" :key="task.id" class="pt-3">
-				<task :taskData="task" />
-			</div>
+			<form @submit.prevent="createTask">
+				<input v-model="task.description" type="text" placeholder="Add task" />
+				<button type="submit" class="btn btn-sm btn-primary">+</button>
+			</form>
+		</div>
+		<div v-for="task in tasks" :key="task.id" class="pt-3">
+			<task :taskData="task" />
 		</div>
 	</div>
 </template>
@@ -58,11 +62,7 @@ export default {
 </script>
 
 <style scoped>
-/* .list-title {
-  background-color: beige;
+#delete-list {
+	margin-left: 5px;
 }
-
-.card-body {
-  background-color: grey;
-} */
 </style>

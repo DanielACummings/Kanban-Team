@@ -1,12 +1,10 @@
 <template>
-	<div class>
-		<div class="style-tasks">
-			<div class="row">
-				<h5 class="col text-center">{{taskData.description}}</h5>
-			</div>
-			<div class="dropdown">
-				<button @click="deleteTask" class="delete-task btn btn-warning btn-sm">X</button>
-				<button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+	<div class="col-12">
+		<div class="style-tasks row pb-2">
+			<button @click="deleteTask" class="btn btn-warning btn-sm">X</button>
+			<h5 id="task" class="col text-center">{{taskData.description}}</h5>
+			<div id="move-btn" class="dropdown">
+				<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
 					Move
 					<span class="caret"></span>
 				</button>
@@ -17,15 +15,15 @@
 				</ul>
 			</div>
 		</div>
-		<form @submit.prevent="createComment" class="form-body">
-			<input v-model="comment.content" type="text" placeholder="Add comment" required />
-			<button type="submit" class="btn btn-primary btn-sm">+</button>
-		</form>
 		<div v-for="comment in comments" :key="comment.id">
 			<div class>
 				<comment class :commentData="comment" />
 			</div>
 		</div>
+		<form @submit.prevent="createComment" class="form-body pt-2">
+			<input v-model="comment.content" type="text" placeholder="Add comment" required />
+			<button type="submit" class="btn btn-primary btn-sm">+</button>
+		</form>
 		<hr />
 	</div>
 </template>
@@ -85,20 +83,4 @@ export default {
 .style-tasks {
 	text-align: left;
 }
-
-/* .delete-task {
-	font-size: 12px;
-}
-
-.form-body {
-	background-color: grey;
-}
-
-.dropdown {
-	background-color: grey;
-}
-
-.beige {
-	background-color: beige;
-} */
 </style>
