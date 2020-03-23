@@ -10,12 +10,12 @@
 
 				<form @submit.prevent="createList">
 					<input v-model="list.title" type="text" placeholder="List Name" />
-					<button class="btn btn-success">Add</button>
+					<button class="btn btn-primary">Add List</button>
 				</form>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-4" v-for="list in lists" :key="list.id">
+			<div class="col-12 col-md-6 col-lg-4" v-for="list in lists" :key="list.id">
 				<List-info :listData="list" />
 			</div>
 		</div>
