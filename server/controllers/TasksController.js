@@ -11,14 +11,11 @@ export default class TasksController {
       .post('', this.createTask)
       .put('/:id', this.editListId)
       .delete('/:id', this.deleteTask)
-
-
-    // .delete('/:id', this.delete)
-    // .use(this.defaultRoute)
+      .use(this.defaultRoute)
   }
-  // defaultRoute(req, res, next) {
-  //   next({ status: 404, message: 'No Such Route' })
-  // }
+  defaultRoute(next) {
+    next({ status: 404, message: 'No Such Route' })
+  }
 
   async createTask(req, res, next) {
     try {

@@ -49,26 +49,8 @@ export default {
 			this.$store.dispatch("createList", newList);
 			this.list.title = "";
 		}
-
-		// createTask(createTask) {
-		//   let newTask = { ...this.task };
-		//   this.$store.dispatch("createTask", newTask);
-		//   this.task = {
-		//     description: "",
-		//     listId: this.,
-		//     authorId: this.$store.state.user._id,
-		//     boardId: this.$props.boardId,
-		//     comments: []
-		//   };
-		// }
 	},
 	computed: {
-		// goodLists() {
-		//   return this.$store.state.lists;
-		// },
-		// tasks() {
-		//   return this.$store.state.tasks;
-		// },
 		lists() {
 			return this.$store.state.lists;
 		},

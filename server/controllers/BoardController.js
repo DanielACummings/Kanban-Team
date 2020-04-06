@@ -16,12 +16,9 @@ export default class BoardsController {
       .delete('/:id', this.delete)
       .get('/:id/lists', this.getListsByBoardId)
       .use(this.defaultRoute)
-    //note route
   }
 
-  // this is pretty neat
-
-  defaultRoute(req, res, next) {
+  defaultRoute(next) {
     next({ status: 404, message: 'No Such Route' })
   }
 
@@ -64,7 +61,6 @@ export default class BoardsController {
     } catch (error) { next(error) }
   }
 
-  // list function
   async getListsByBoardId(req, res, next) {
     try {
       let data = await _listService.getListsByBoardId(req.params.id)

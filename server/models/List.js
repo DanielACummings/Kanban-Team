@@ -10,7 +10,7 @@ const List = new Schema({
 
 //CASCADE ON DELETE
 List.pre('deleteMany', function (next) {
-  //lets find all the lists and remove them
+  //finds all the lists and removes them
   Promise.all([
     //_taskService.deleteMany({ listId: this._conditions_id }),
   ])
@@ -20,7 +20,7 @@ List.pre('deleteMany', function (next) {
 
 //CASCADE ON DELETE
 List.pre('findOneAndRemove', function (next) {
-  //lets find all the lists and remove them
+  //finds all the lists and removes them
   Promise.all([
     // _taskRepo.deleteMany({ boardId: this._conditions._id })
   ])

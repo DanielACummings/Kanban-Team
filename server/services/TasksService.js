@@ -17,10 +17,6 @@ class TasksService {
     return data
   }
 
-  // async getTasksByBoardId(id) {
-  //   let data = await _repository.find({ boardId: id })
-  //   return data
-  // }
   async deleteTask(id) {
     await _repository.findOneAndRemove({ _id: id })
   }

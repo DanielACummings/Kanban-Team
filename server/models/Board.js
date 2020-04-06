@@ -13,8 +13,9 @@ const Board = new Schema({
 
 //CASCADE ON DELETE
 Board.pre('findOneAndRemove', function (next) {
-  //lets find all the lists and remove them
+  //finds all lists and removes them
   Promise.all([
+    //@ts-ignore
     _listRepository.deleteMany({ boardId: this._conditions._id })
     //_taskRespository.deleteMany({boardId: this._conditions._id})
   ])
