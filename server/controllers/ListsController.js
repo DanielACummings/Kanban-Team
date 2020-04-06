@@ -10,13 +10,11 @@ export default class ListsController {
       .get('/:id/tasks', this.getTasksByList)
       .post('', this.createList)
       .delete('/:id', this.deleteList)
-    // .use(Authorize.authenticated)
-    // .delete('/:id', this.delete)
-    // .use(this.defaultRoute)
+      .use(this.defaultRoute)
   }
-  // defaultRoute(req, res, next) {
-  //   next({ status: 404, message: 'No Such Route' })
-  // }
+  defaultRoute(next) {
+    next({ status: 404, message: 'No Such Route' })
+  }
 
   async createList(req, res, next) {
     try {

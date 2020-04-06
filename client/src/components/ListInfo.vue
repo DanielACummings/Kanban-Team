@@ -46,7 +46,6 @@ export default {
 		deleteList(data) {
 			this.$store.dispatch("deleteList", data);
 		},
-		// task methods
 		createTask() {
 			let newTask = { ...this.task };
 			this.$store.dispatch("createTask", newTask);

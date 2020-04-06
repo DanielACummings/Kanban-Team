@@ -9,11 +9,11 @@ export default class CommentsController {
       .post('', this.createComment)
       .delete('/:id', this.deleteComment)
 
-    // .use(this.defaultRoute)
+      .use(this.defaultRoute)
   }
-  // defaultRoute(req, res, next) {
-  //   next({ status: 404, message: 'No Such Route' })
-  // }
+  defaultRoute(req, res, next) {
+    next({ status: 404, message: 'No Such Route' })
+  }
 
   async createComment(req, res, next) {
     try {
